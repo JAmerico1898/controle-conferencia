@@ -74,9 +74,9 @@ def _gestao_conferencia():
     with col1:
         mes_opcoes = {v: k for k, v in MESES_CONFERENCIA.items()}
         mes_selecionado = st.selectbox("Mês da Conferência", list(mes_opcoes.keys()), key="adm_mes")
-        data_inicio = st.date_input("Data de início das inscrições", key="adm_dt_ini")
+        data_inicio_str = st.text_input("Data de início das inscrições (dd/mm/aaaa)", key="adm_dt_ini")
     with col2:
-        data_fim = st.date_input("Data de fim das inscrições", key="adm_dt_fim")
+        data_fim_str = st.text_input("Data de fim das inscrições (dd/mm/aaaa)", key="adm_dt_fim")
         # Issue #3: Escolha de ocupação dos alojamentos
         ocupacao = st.selectbox(
             "Ocupação dos alojamentos",
@@ -88,12 +88,19 @@ def _gestao_conferencia():
         if conf_ativa:
             st.error("Já existe conferência ativa. Feche-a antes.")
             return
+        try:
+            data_inicio = datetime.strptime(data_inicio_str, "%d/%m/%Y")
+            data_fim = datetime.strptime(data_fim_str, "%d/%m/%Y")
+        except ValueError:
+            st.error("Formato inválido. Use dd/mm/aaaa (ex: 23/02/2026).")
+            return
+
         if data_fim <= data_inicio:
             st.error("Data de fim deve ser posterior à data de início.")
             return
 
         mes_num = mes_opcoes[mes_selecionado]
-        ano = data_inicio.year  # Issue #2: ano vem da data
+        ano = data_inicio.year
         try:
             nome_aba = abrir_conferencia(
                 mes_num, int(ano),
