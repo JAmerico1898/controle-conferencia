@@ -15,7 +15,7 @@ from sheets import (
     obter_ocupacao_conferencia, calcular_quarto_cama,
 )
 
-rosacruz_url = "https://raw.githubusercontent.com/JAmerico1898/controle-conferencia/43dd0c98bfddc62c7803a9c9c7523d0ad3303871/rosacruz.png"
+rosacruz_url = "https://raw.githubusercontent.com/JAmerico1898/controle-conferencia/3603d1046888c033126d727cf9df5e7a3ab50720/rosacruz.png"
 
 
 def exibir_area_publica():
