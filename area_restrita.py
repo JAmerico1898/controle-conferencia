@@ -5,7 +5,7 @@
 import streamlit as st
 import pandas as pd
 import io
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 from config import (
     MESES_CONFERENCIA, PREDIOS, COMBINACOES_OCUPACAO,
     ESTADOS_BR, DISCIPULADOS, DATAS_CHEGADA, COLUNAS_PLANILHA,
@@ -78,7 +78,7 @@ def _gestao_conferencia():
             value=date.today(), format="DD/MM/YYYY", key="adm_dt_ini")
     with col2:
         data_fim = st.date_input("Data de fim das inscrições",
-            value=date.today(), format="DD/MM/YYYY", key="adm_dt_fim")
+            value=date.today() + timedelta(days=10), format="DD/MM/YYYY", key="adm_dt_fim")
         ocupacao = st.selectbox(
             "Ocupação dos alojamentos",
             list(COMBINACOES_OCUPACAO.keys()),
