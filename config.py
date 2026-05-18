@@ -49,13 +49,12 @@ DISCIPULADOS = [
 ]
 
 # Opções de data de chegada
-DATAS_CHEGADA = ["Sexta à tarde", "Sexta à noite", "Sábado de manhã"]
+DATAS_CHEGADA = ["Sábado de manhã", "Outro horário no Sábado"]
 
 # Refeições disponíveis por data de chegada
 REFEICOES_POR_CHEGADA = {
-    "Sexta à tarde": ["Jantar de Sexta", "Almoço de Sábado", "Jantar de Sábado", "Lanche de Domingo"],
-    "Sexta à noite": ["Jantar de Sexta", "Almoço de Sábado", "Jantar de Sábado", "Lanche de Domingo"],
     "Sábado de manhã": ["Almoço de Sábado", "Jantar de Sábado", "Lanche de Domingo"],
+    "Outro horário no Sábado": ["Jantar de Sábado", "Lanche de Domingo"],
 }
 
 # Refeições para não-alojados

@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.claude/
+.streamlit/secrets.toml
+*.json
+!package.json
+!package-lock.json
+.env
+.venv/
+venv/
